@@ -6,8 +6,11 @@
     <title>Ahmed Khaled | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    
     <style>
-        /* Variables - لتسهيل التحكم بالألوان */
+
+        /* Variables */
         :root {
             --bg-color: #0f172a;
             --card-bg: #1e293b;
@@ -30,7 +33,7 @@
             line-height: 1.6;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar Styles */
         nav {
             position: fixed;
             top: 0;
@@ -60,7 +63,7 @@
             color: var(--blue-color);
         }
 
-        /* Hero Section */
+        /* Hero Section Styling */
         .hero {
             height: 100vh;
             display: flex;
@@ -99,9 +102,184 @@
             transform: translateY(-5px);
         }
 
-        /* Section Global Styles */
+        /* Reusable Section and Card Layouts */
         section {
             padding: 100px 10%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--blue-color);
+            margin: 10px auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--blue-color);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--blue-color);
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            color: var(--text-gray);
+        }
+
+        .card ul li { margin-bottom: 8px; }
+        .card ul li::before { content: '- '; color: var(--blue-color); }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--blue-color);
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background-color: #fff; }
+
+        .contact-info {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-gray);
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Ahmed Khaled</h1>
+        <p>Software Engineer | Flutter Developer | Game Developer</p>
+        <div class="social-icons">
+            <a href="https://github.com/AhmedAltohamyy" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-khaled-228a53284" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/201157844805" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-gray);">
+            <p>I am a passionate developer focused on building high-quality mobile applications and interactive games. With a strong foundation in Clean Architecture and State Management.</p>
+            <br>
+            <p><i class="fas fa-language" style="color: var(--blue-color);"></i> Languages: Arabic (Native), English (B2)</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Dart</li>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>HTML & CSS</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Frameworks</h3>
+                <ul>
+                    <li>Flutter</li>
+                    <li>Godot Engine</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Backend & Data</h3>
+                <ul>
+                    <li>Firebase</li>
+                    <li>Hive (Local DB)</li>
+                    <li>REST API (Dio/Http)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>To-Do List App</h3>
+                <p style="color: var(--text-gray);">Flutter app with Hive and Bloc management.</p>
+                <a href="https://github.com/AhmedAltohamyy/ToDoList" class="btn" target="_blank">View Code</a>
+            </div>
+            <div class="card">
+                <h3>Ancient Egypt Game</h3>
+                <p style="color: var(--text-gray);">Immersive game developed with Godot Engine.</p>
+                <a href="https://itch.io/jam/micro-jam-032/rate/3274031" class="btn" target="_blank">Play Game</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> dr.ahmedkhaled2009@gmail.com</p>
+            <p><i class="fab fa-whatsapp"></i> +201157844805</p>
+            <p><i class="fas fa-map-marker-alt"></i> Egypt</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ahmed Khaled. Built with Passion.</p>
+    </footer>
+
+</body>
+</html>
         }
 
         .section-title {
